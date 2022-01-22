@@ -1,3 +1,15 @@
+let questions = [
+    {
+        question: "Inside which HTML element do we put the JavaScript?",
+        choices: ["function myFunction()", "myFunction", "function = myFunction()", "makeAFunctionPlease"],
+        answer: "function MyFunction()"
+    },
+    {
+        question: "How do you call a function named 'pizza'?",
+        choices: ["eatPizza", "eatMyPizza", "call pizza()", "pizza()"],
+        answer: "pizza()"
+    }
+]
 //hides start page then shows the question div
 //starts timer 
 //input question onto page
@@ -29,7 +41,10 @@ document.querySelector("#start-btn").addEventListener("click",function(){
     
     countdown(1);
 })
-document.getElementById("answer-choice1").innerHTML = "1. function myfunction()";
+// document.getElementById("answer-choice1").innerHTML = "1. function myFunction()";
+// document.getElementById("answer-choice2").innerHTML = "2. myFunction()";
+// document.getElementById("answer-choice3").innerHTML = "3. function = myFunction()"
+// document.getElementById("answer-choice4").innerHTML = "4. makeAFunctionPlease"
 
 //start button needs to ask first question
 //questions need to be 4 answer choices
