@@ -138,9 +138,9 @@ function displayQuestion() {
     questionNumber++;
 }
 
-document.getElementById("choices").addEventListener("click", function(event) {
+document.querySelector("#choices").addEventListener("click", function(event) {
     
-    if (event.target.tagName == 'BUTTON'){
+    if (event.target.matches("btn-choices")) {
         let answer = event.target.getAttribute("data-answer");
          if(answer == 'true'){
              console.log("nice")
