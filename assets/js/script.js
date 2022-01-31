@@ -1,5 +1,7 @@
 var seconds = 60;
 let questionNumber = 0;
+// var btnChoices = document.createElement("button");
+// btnChoices.setAttribute("id", "btn-choices");
 let questions = [
     {
         key:1,
@@ -74,7 +76,6 @@ let questions = [
 //starts timer 
 //input question onto page
 document.querySelector("#start-btn").addEventListener("click",function(){
-    console.log("button clicked");
     document.querySelector(".start-page").style.display = "none"
     document.querySelector("#question-page").style.display = "block"
     function countdown(minutes) {
@@ -121,22 +122,39 @@ document.querySelector("#start-btn").addEventListener("click",function(){
 //after game be able to input initials
 function displayQuestion() {
     let currentQuestion = questions[questionNumber];
-    console.log("current question: ",currentQuestion.question);
     let q1 = document.getElementById("question");
-    console.log(q1);
     q1.innerText = currentQuestion.question;
     let choicesList= document.getElementById("choices");
-
+    choicesList.innerHTML = "";
     currentQuestion.choices.map(choice=> {
-        let element = document.createElement('li');
-        console.log(choice.text);
+        let element = document.createElement('button');
+        element.classList.add("btn-choices");
+        element.setAttribute("id", "idChoices");
+        element.setAttribute("data-answer", choice.answer);
         element.innerText = choice.text
         //change to innerHTML to insert a button
         //insert your choice text and choice answer
-        
         choicesList.appendChild(element) })
+    questionNumber++;
+}
 
-    // {"key": 1,
+document.getElementById("choices").addEventListener("click", function(event) {
+    
+    if (event.target.tagName == 'BUTTON'){
+        let answer = event.target.getAttribute("data-answer");
+         if(answer == 'true'){
+             console.log("nice")
+         }
+         else{
+             console.log("wrong")
+         }
+    }
+    
+    displayQuestion();
+})
+
+
+ // {"key": 1,
     // "question": "What is the correct way to start a function?",
     // "choices": [
     //     {
@@ -156,56 +174,4 @@ function displayQuestion() {
     //         "answer": false
     //     }
     // ]
-// }
-    questionNumber++;
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//     document.querySelector(".question").innerHTML = currentQuestion.question;
-//     document.getElementById("answer-choice1").innerHTML = currentQuestion.choices[0]
-//     document.getElementById("answer-choice2").innerHTML = currentQuestion.choices[1]
-//     document.getElementById("answer-choice3").innerHTML = currentQuestion.choices[2]
-//     document.getElementById("answer-choice4").innerHTML = currentQuestion.choices[3]
-//     var answer1 = document.getElementById("answer-choice1").addEventListener("click", function(){
-//         console.log("hey there");
-//         // if (currentQuestion.choices = currentQuestion.answer){
-//         //     console.log("correct");
-//         // }
-//         // else {
-//         //     console.log("incorrect");
-//         // }
-//         questionNumber++;
-//         displayQuestion();
-//     })
-//     var answer1 = document.getElementById("answer-choice2").addEventListener("click", function(){
-//         questionNumber++;
-//         displayQuestion();
-//     })
-//     var answer1 = document.getElementById("answer-choice3").addEventListener("click", function(){
-//         questionNumber++;
-//         displayQuestion();
-//     })
-//     var answer1 = document.getElementById("answer-choice4").addEventListener("click", function(){
-//         questionNumber++;
-//         displayQuestion();
-//     })
-//     if (answer1 == currentQuestion.answer){
-//         console.log("correct");
-//     }
-//     else {
-//         console.log("incorrect");
-//     }
 // }
