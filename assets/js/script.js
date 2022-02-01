@@ -147,16 +147,16 @@ function displayQuestion(){
     let a4 = document.getElementById("answer4");
     q1.innerText = currentQuestion.question;
     a1.innerText = currentQuestion.choices[questionNumber].text;
-    a2.innerText = currentQuestion.choices[questionNumber].text;
-    a3.innerText = currentQuestion.choices[questionNumber].text;
-    a4.innerText = currentQuestion.choices[questionNumber].text;
+    a2.innerText = currentQuestion.choices[1].text;
+    a3.innerText = currentQuestion.choices[2].text;
+    a4.innerText = currentQuestion.choices[3].text;
     
 }
 
-document.getElementById("answer1")("click", function(event) {
-    let currentQuestion = questions[questionNumber];
+document.getElementById("answer1").addEventListener("click", function(event) {
+    
     if (event.target.tagName == "BUTTON") {
-        let answer = currentQuestion.choices[questionNumber].answer;
+        let answer = questions.choices[1].answer;
          if(answer == 'true'){
              console.log("nice")
          }
