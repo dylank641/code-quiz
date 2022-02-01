@@ -156,7 +156,7 @@ function displayQuestion(){
 document.getElementById("answer1").addEventListener("click", function(event) {
     
     if (event.target.tagName == "BUTTON") {
-        let answer = questions.choices[1].answer;
+        let answer = questions[0].choices[0].answer;
          if(answer == 'true'){
              console.log("nice")
          }
