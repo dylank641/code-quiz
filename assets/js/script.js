@@ -156,15 +156,61 @@ function displayQuestion(){
 document.getElementById("answer1").addEventListener("click", function(event) {
     
     if (event.target.tagName == "BUTTON") {
-        let answer = questions[0].choices[0].answer;
-         if(answer == 'true'){
+        let answer = questions[questionNumber].choices[0].answer;
+        console.log(answer);
+         if(answer){
              console.log("nice")
          }
          else{
              console.log("wrong")
          }
     }
+    questionNumber++;
+    displayQuestion();
+})
+document.getElementById("answer2").addEventListener("click", function(event) {
     
+    if (event.target.tagName == "BUTTON") {
+        let answer = questions[questionNumber].choices[1].answer;
+        console.log(answer);
+         if(answer){
+             console.log("nice")
+         }
+         else{
+             console.log("wrong")
+         }
+    }
+    questionNumber++;
+    displayQuestion();
+})
+document.getElementById("answer3").addEventListener("click", function(event) {
+    
+    if (event.target.tagName == "BUTTON") {
+        let answer = questions[questionNumber].choices[2].answer;
+        console.log(answer);
+         if(answer){
+             console.log("nice")
+         }
+         else{
+             console.log("wrong")
+         }
+    }
+    questionNumber++;
+    displayQuestion();
+})
+document.getElementById("answer4").addEventListener("click", function(event) {
+    
+    if (event.target.tagName == "BUTTON") {
+        let answer = questions[questionNumber].choices[3].answer;
+        console.log(answer);
+         if(answer){
+             console.log("nice")
+         }
+         else{
+             console.log("wrong")
+         }
+    }
+    questionNumber++;
     displayQuestion();
 })
 
