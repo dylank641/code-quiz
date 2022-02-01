@@ -120,28 +120,43 @@ document.querySelector("#start-btn").addEventListener("click",function(){
 //scores shoould be able to be seen
 //after game to presented with score
 //after game be able to input initials
-function displayQuestion() {
+// function displayQuestion() {
+//     let currentQuestion = questions[questionNumber];
+//     let q1 = document.getElementById("question");
+//     q1.innerText = currentQuestion.question;
+//     let choicesList= document.getElementById("choices");
+//     choicesList.innerHTML = "";
+//     currentQuestion.choices.map(choice=> {
+//         let element = document.createElement('button');
+//         element.classList.add("btn-choices");
+//         element.setAttribute("id", "idChoices");
+//         element.setAttribute("data-answer", choice.answer);
+//         element.innerText = choice.text
+//         //change to innerHTML to insert a button
+//         //insert your choice text and choice answer
+//         choicesList.appendChild(element) })
+//     questionNumber++;
+// }
+
+function displayQuestion(){
     let currentQuestion = questions[questionNumber];
     let q1 = document.getElementById("question");
+    let a1 = document.getElementById("answer1");
+    let a2 = document.getElementById("answer2");
+    let a3 = document.getElementById("answer3");
+    let a4 = document.getElementById("answer4");
     q1.innerText = currentQuestion.question;
-    let choicesList= document.getElementById("choices");
-    choicesList.innerHTML = "";
-    currentQuestion.choices.map(choice=> {
-        let element = document.createElement('button');
-        element.classList.add("btn-choices");
-        element.setAttribute("id", "idChoices");
-        element.setAttribute("data-answer", choice.answer);
-        element.innerText = choice.text
-        //change to innerHTML to insert a button
-        //insert your choice text and choice answer
-        choicesList.appendChild(element) })
-    questionNumber++;
+    a1.innerText = currentQuestion.choices[questionNumber].text;
+    a2.innerText = currentQuestion.choices[questionNumber].text;
+    a3.innerText = currentQuestion.choices[questionNumber].text;
+    a4.innerText = currentQuestion.choices[questionNumber].text;
+    
 }
 
-document.querySelector("#choices").addEventListener("click", function(event) {
-    
-    if (event.target.matches("btn-choices")) {
-        let answer = event.target.getAttribute("data-answer");
+document.getElementById("answer1")("click", function(event) {
+    let currentQuestion = questions[questionNumber];
+    if (event.target.tagName == "BUTTON") {
+        let answer = currentQuestion.choices[questionNumber].answer;
          if(answer == 'true'){
              console.log("nice")
          }
