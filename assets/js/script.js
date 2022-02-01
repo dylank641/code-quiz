@@ -162,7 +162,13 @@ document.getElementById("answer1").addEventListener("click", function(event) {
              console.log("nice")
          }
          else{
-             console.log("wrong")
+             console.log("wrong");
+             if (seconds > 10){
+                 seconds = seconds - 10;
+             }
+             else{
+                 seconds = 0;
+             }
          }
     }
     questionNumber++;
@@ -177,8 +183,14 @@ document.getElementById("answer2").addEventListener("click", function(event) {
              console.log("nice")
          }
          else{
-             console.log("wrong")
-         }
+            console.log("wrong");
+            if (seconds > 10){
+                seconds = seconds - 10;
+            }
+            else{
+                seconds = 0;
+            }
+        }
     }
     questionNumber++;
     displayQuestion();
@@ -192,8 +204,14 @@ document.getElementById("answer3").addEventListener("click", function(event) {
              console.log("nice")
          }
          else{
-             console.log("wrong")
-         }
+            console.log("wrong");
+            if (seconds > 10){
+                seconds = seconds - 10;
+            }
+            else{
+                seconds = 0;
+            }
+        }
     }
     questionNumber++;
     displayQuestion();
@@ -207,8 +225,14 @@ document.getElementById("answer4").addEventListener("click", function(event) {
              console.log("nice")
          }
          else{
-             console.log("wrong")
-         }
+            console.log("wrong");
+            if (seconds > 10){
+                seconds = seconds - 10;
+            }
+            else{
+                seconds = 0;
+            }
+        }
     }
     questionNumber++;
     displayQuestion();
