@@ -206,28 +206,29 @@ document.getElementById("answer4").addEventListener("click", function(event) {
     displayQuestion();
 })
 
-function scoreboard(){
-    document.getElementById("end-page").style.display = "none";
-    document.getElementById("scoreboard").style.display = "block";
-    for (i = 0; i < 5; i++){
-        let scoresEl = document.createElement("li");
-        scoresEl.innerHTML = "say less";
-        document.getElementById("scores").appendChild(scoresEl);
-
-    }
-}
-
 function endGame(){
     console.log("finished");
     let initials = document.getElementById("initials").value;
     console.log(initials);
-    clearTimeout(seconds);
+    clearInterval(seconds);
     document.getElementById("question-page").style.display = "none";
     document.getElementById("end-page").style.display = "block";
     document.getElementById("your-score").textContent = "Your final score is " + seconds + ".";
     document.getElementById("submit-score").addEventListener("click", function(){
         scoreboard();
     })
+}
+function scoreboard(){
+    document.getElementById("end-page").style.display = "none";
+    document.getElementById("scoreboard").style.display = "block";
+    let initials = document.getElementById("initials").value;
+    console.log(initials);
+    for (i = 0; i < 5; i++){
+        let scoresEl = document.createElement("li");
+        scoresEl.innerHTML = initials + " - " + seconds;
+        document.getElementById("scores").appendChild(scoresEl);
+
+    }
 }
 
 
