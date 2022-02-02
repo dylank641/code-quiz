@@ -4,4 +4,5 @@
 
 If you want to try it out click this link: https://dylank641.github.io/code-quiz/
 
-https://github.com/dylank641/code-quiz/blob/main/assets/images/code-quiz.PNG
+![image](https://user-images.githubusercontent.com/95449073/152228728-35005d79-509b-4eec-abc9-8a031fabf67e.png)
+
