@@ -249,7 +249,7 @@ function scoreboard(){
     //     },
     //     {
     //         "text": "makeAFunctionPlease",
-    //         "answer": false
+    //         "answer": falsess
     //     }
     // ]
 // }
