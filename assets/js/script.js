@@ -1,7 +1,8 @@
 var seconds = 60;
 let questionNumber = 0;
-
-
+let score = 0;
+let number = 0;
+let highScores = [];
 let questions = [
     {
         key:1,
@@ -99,6 +100,12 @@ document.querySelector("#start-btn").addEventListener("click",function(){
     
     countdown(1);
     displayQuestion();
+})
+
+document.getElementById("viewHigh").addEventListener("click", function(){
+    document.querySelector(".start-page").style.display = "none";
+    document.getElementById("viewHigh").style.display = "none"; 
+    scoreboard();
 })
 
 function displayQuestion(){
@@ -207,64 +214,43 @@ document.getElementById("answer4").addEventListener("click", function(event) {
 })
 
 function endGame(){
-    console.log("finished");
-    let initials = document.getElementById("initials").value;
-    console.log(initials);
-    clearInterval(seconds);
+    document.getElementById("viewHigh").style.display = "none";
+    document.getElementById("countdown-timer").style.display = "none";
+    score = seconds;
     document.getElementById("question-page").style.display = "none";
     document.getElementById("end-page").style.display = "block";
-    document.getElementById("your-score").textContent = "Your final score is " + seconds + ".";
+    document.getElementById("your-score").textContent = "Your final score is " + score + ".";
     document.getElementById("submit-score").addEventListener("click", function(){
+        document.getElementById("viewHigh").style.display = "none";
+        let initials = document.getElementById("initials").value;
+        let highScores = JSON.parse(localStorage.getItem("highscores"));
+        if (highScores == null){
+            highScores = [];
+        }
+        let newHighScores = {
+            initials: initials,
+            score: score
+        }
+        highScores.push(newHighScores);
+        localStorage.setItem("highscores", JSON.stringify(highScores))
         scoreboard();
     })
 }
+
 function scoreboard(){
     document.getElementById("end-page").style.display = "none";
     document.getElementById("scoreboard").style.display = "block";
-    let initials = document.getElementById("initials").value;
-    console.log(initials);
-    for (i = 0; i < 5; i++){
+    //let initials = document.getElementById("initials").value;
+    let highScores = JSON.parse(localStorage.getItem("highscores"));
+    for (i = 0; i < highScores.length; i++){
+        let initials = highScores[i].initials;
+        let score = highScores[i].score;
         let scoresEl = document.createElement("li");
-        scoresEl.innerHTML = initials + " - " + seconds;
+        scoresEl.innerHTML = initials + " - " + score;
         document.getElementById("scores").appendChild(scoresEl);
-
     }
+    document.getElementById("clear").addEventListener("click", function(){
+        localStorage.clear("highscores");
+        document.getElementById("scores").style.display = "none";
+    })
 }
-
-
- // {"key": 1,
-    // "question": "What is the correct way to start a function?",
-    // "choices": [
-    //     {
-    //         "text": "function myFunction()",
-    //         "answer": true
-    //     },
-    //     {
-    //         "text": "myFunction",
-    //         "answer": false
-    //     },
-    //     {
-    //         "text": "function = myFunction()",
-    //         "answer": false
-    //     },
-    //     {
-    //         "text": "makeAFunctionPlease",
-    //         "answer": falsess
-    //     }
-    // ]
-// }
-//start button needs to ask first question
-//questions need to be 4 answer choices
-//clicking the incorrect answerneeds to deduct time
-//clicking the the correct answeer will go to the next question
-//timer need s to countdown
-//game ends if time runs out
-//game ends if all questions are answered correctly
-//need page to shoe high score page
-//create clear scored button
-//create clear  scores button
-//scores shoould be able to be seen
-//after game to presented with score
-//after game be able to input initials
-// function displayQuestion() {
-

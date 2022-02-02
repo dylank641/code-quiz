@@ -10,40 +10,46 @@
 </head>
 <body>
     <div class="quiz-info">
-        <a href="">View high scores</a>
-        <p>Time Left:<span id="time-left">1 Minute</span></p>
+        <button id="viewHigh" class="vhs">View high scores</button>
+        <p id="countdown-timer" class="cdt">Time Left:<span id="time-left">1 Minute</span></p>
     </div>
     <div class="start-page">
-        <h1>Code Quiz</h1>
-        <p>
+        <h1 class="title">Code Quiz</h1>
+        <p class="test-info">
             This quiz will test you on your knowledge of Javascript
         </p>
         <button id="start-btn">Start</button>
     </div>
     <div id="question-page">
-        <h2 id="question"></h2>
-        <button id="answer1"></button>
-        <button id="answer2"></button>
-        <button id="answer3"></button>
-        <button id="answer4"></button>
+            <h2 id="question"></h2>
+        <div class="for-cssq">
+            <button id="answer1"></button>
+            <button id="answer2"></button>
+            <button id="answer3"></button>
+            <button id="answer4"></button>
+        </div>
     </div>
     <div id ="end-page">
-        <h3 id="greeting">All Done!</h3>
-        <p id="your-score"></p>
-        <div id="textarea">
-            <p>Enter Initials:</p>
-            <textarea id="initials"></textarea>
-            <button id="submit-score">Submit</button>
+        <div class="for-cssq">
+            <h3 id="greeting">All Done!</h3>
+            <p id="your-score"></p>
+            <div id="textarea">
+                <p class="enterI">Enter Initials:</p>
+                <textarea id="initials"></textarea>
+                <button id="submit-score">Submit</button>
+            </div>
         </div>
-
     </div>
     <div id="scoreboard">
-        <h2>Scoreboard</h2>
-        <ul id="scores">
-
-        </ul>
+        <div class="for-css-score">
+            <h2 class="score-title">Scoreboard</h2>
+            <ul id="scores">
+        
+            </ul>
+        </div>
         <div id="scoreboard-buttons">
-            <button>Go Back</button>
+            <a href=""><button>Go back</button></a>
+            <button id="clear">Clear High Scores</button>
         </div>
     </div>
     
