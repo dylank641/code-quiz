@@ -1,7 +1,7 @@
 var seconds = 60;
 let questionNumber = 0;
-// var btnChoices = document.createElement("button");
-// btnChoices.setAttribute("id", "btn-choices");
+
+
 let questions = [
     {
         key:1,
@@ -72,9 +72,7 @@ let questions = [
         ],  
     },
 ]
-//hides start page then shows the question div
-//starts timer 
-//input question onto page
+
 document.querySelector("#start-btn").addEventListener("click",function(){
     document.querySelector(".start-page").style.display = "none"
     document.querySelector("#question-page").style.display = "block"
@@ -102,43 +100,9 @@ document.querySelector("#start-btn").addEventListener("click",function(){
     countdown(1);
     displayQuestion();
 })
-// document.getElementById("answer-choice1").innerHTML = "1. function myFunction()";
-// document.getElementById("answer-choice2").innerHTML = "2. myFunction()";
-// document.getElementById("answer-choice3").innerHTML = "3. function = myFunction()"
-// document.getElementById("answer-choice4").innerHTML = "4. makeAFunctionPlease"
-
-//start button needs to ask first question
-//questions need to be 4 answer choices
-//clicking the incorrect answerneeds to deduct time
-//clicking the the correct answeer will go to the next question
-//timer need s to countdown
-//game ends if time runs out
-//game ends if all questions are answered correctly
-//need page to shoe high score page
-//create clear scored button
-//create clear  scores button
-//scores shoould be able to be seen
-//after game to presented with score
-//after game be able to input initials
-// function displayQuestion() {
-//     let currentQuestion = questions[questionNumber];
-//     let q1 = document.getElementById("question");
-//     q1.innerText = currentQuestion.question;
-//     let choicesList= document.getElementById("choices");
-//     choicesList.innerHTML = "";
-//     currentQuestion.choices.map(choice=> {
-//         let element = document.createElement('button');
-//         element.classList.add("btn-choices");
-//         element.setAttribute("id", "idChoices");
-//         element.setAttribute("data-answer", choice.answer);
-//         element.innerText = choice.text
-//         //change to innerHTML to insert a button
-//         //insert your choice text and choice answer
-//         choicesList.appendChild(element) })
-//     questionNumber++;
-// }
 
 function displayQuestion(){
+    if ((questionNumber < questions.length) && (seconds > 0)){
     let currentQuestion = questions[questionNumber];
     let q1 = document.getElementById("question");
     let a1 = document.getElementById("answer1");
@@ -150,6 +114,10 @@ function displayQuestion(){
     a2.innerText = currentQuestion.choices[1].text;
     a3.innerText = currentQuestion.choices[2].text;
     a4.innerText = currentQuestion.choices[3].text;
+    }
+    else{
+        endGame();
+    }
     
 }
 
@@ -238,6 +206,30 @@ document.getElementById("answer4").addEventListener("click", function(event) {
     displayQuestion();
 })
 
+function scoreboard(){
+    document.getElementById("end-page").style.display = "none";
+    document.getElementById("scoreboard").style.display = "block";
+    for (i = 0; i < 5; i++){
+        let scoresEl = document.createElement("li");
+        scoresEl.innerHTML = "say less";
+        document.getElementById("scores").appendChild(scoresEl);
+
+    }
+}
+
+function endGame(){
+    console.log("finished");
+    let initials = document.getElementById("initials").value;
+    console.log(initials);
+    clearTimeout(seconds);
+    document.getElementById("question-page").style.display = "none";
+    document.getElementById("end-page").style.display = "block";
+    document.getElementById("your-score").textContent = "Your final score is " + seconds + ".";
+    document.getElementById("submit-score").addEventListener("click", function(){
+        scoreboard();
+    })
+}
+
 
  // {"key": 1,
     // "question": "What is the correct way to start a function?",
@@ -260,3 +252,18 @@ document.getElementById("answer4").addEventListener("click", function(event) {
     //     }
     // ]
 // }
+//start button needs to ask first question
+//questions need to be 4 answer choices
+//clicking the incorrect answerneeds to deduct time
+//clicking the the correct answeer will go to the next question
+//timer need s to countdown
+//game ends if time runs out
+//game ends if all questions are answered correctly
+//need page to shoe high score page
+//create clear scored button
+//create clear  scores button
+//scores shoould be able to be seen
+//after game to presented with score
+//after game be able to input initials
+// function displayQuestion() {
+
